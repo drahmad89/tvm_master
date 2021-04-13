@@ -10,27 +10,28 @@ install/*.sh /install/
 %post
 # Install dependencies.
 apt-get update --fix-missing
-apt-get install -y nano vim emacs less git
+#apt-get install -y nano vim emacs less git
 bash /install/ubuntu_install_core.sh
-bash /install/ubuntu1804_install_python.sh
-bash /install/ubuntu_install_python_package.sh
-bash /install/ubuntu_install_tensorflow.sh
-bash /install/ubuntu_install_pytorch.sh
-bash /install/ubuntu_install_java.sh    # OpenJDK 11 does *not* work - missing `javah`.
-bash /install/ubuntu1804_install_llvm.sh
-bash /install/ubuntu1804_install_clang_format.sh
-bash /install/ubuntu1804_install_gradle.sh
-bash /install/ubuntu1804_install_androidsdk.sh
-#bash /install/ubuntu_install_vulkan.sh
-
-#export VULKAN_SDK=/usr
-#echo "export VULKAN_SDK=\"${VULKAN_SDK}\"" >> $SINGULARITY_ENVIRONMENT
-
-git clone https://github.com/KhronosGroup/OpenCL-Headers /usr/local/OpenCL-Headers/
-
+#bash /install/ubuntu1804_install_python.sh
+#bash /install/ubuntu_install_python_package.sh
+#bash /install/ubuntu_install_tensorflow.sh
+#bash /install/ubuntu_install_pytorch.sh
+#bash /install/ubuntu_install_java.sh    # OpenJDK 11 does *not* work - missing `javah`.
+#bash /install/ubuntu1804_install_llvm.sh
+#bash /install/ubuntu1804_install_clang_format.sh
+#bash /install/ubuntu1804_install_gradle.sh
+#bash /install/ubuntu1804_install_androidsdk.sh
+##bash /install/ubuntu_install_vulkan.sh
+#
+##export VULKAN_SDK=/usr
+##echo "export VULKAN_SDK=\"${VULKAN_SDK}\"" >> $SINGULARITY_ENVIRONMENT
+#
+#git clone https://github.com/KhronosGroup/OpenCL-Headers /usr/local/OpenCL-Headers/
+#
 # Build TVM
 cd /usr
-git clone --recursive https://github.com/obilaniu/tvm.git tvm
+#git clone --recursive https://github.com/obilaniu/tvm.git tvm
+cp -R /home/ahmad/tvm_master /usr/tvm 
 cd tvm
 git checkout simplified
 mkdir -p build
